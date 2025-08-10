@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Autonomo de Emprendimiento del estado Sucre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --primary-color: #00539b;
+            --secondary-color: #e31837;
+            --accent-color: #f9b233;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --white: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        /* Header Styles */
+        
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-icons a {
+            color: var(--white);
+            margin-left: 15px;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+        
+        .header-main {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            max-height: 100px;
+            margin-right: 20px;
+        }
+        
+        .institution-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+        
+        .institution-subtitle {
+            font-size: 18px;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        
+        .navigation {
+            background-color: var(--primary-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            position: relative;
+        }
+        
+        .nav-menu li a {
+            display: block;
+            padding: 15px 50px;
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-menu li.active a {
+            background-color: var(--secondary-color);
+        }
+        /* Hero Banner */
+        
+        .hero-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/736x/5d/cd/51/5dcd51817ddc879aa6472328e26fbba3.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c00e2b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        /* News Section */
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        .news-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-date {
+            font-size: 14px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .news-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .news-excerpt {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .read-more {
+            color: var(--secondary-color);
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: all 0.3s;
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        /* Services Section */
+        
+        .services {
+            background-color: var(--light-gray);
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        /* Authorities Section */
+        
+        .authorities-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .authority-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .authority-photo {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .authority-info {
+            padding: 20px;
+        }
+        
+        .authority-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .authority-position {
+            font-size: 16px;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        /* Contact Section */
+        
+        .contact {
+            background: linear-gradient(to right, var(--primary-color), #0066b8);
+            color: var(--white);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: var(--accent-color);
+        }
+        
+        .contact-details h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        /* Footer */
+        
+        .footer {
+            background-color: #002147;
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        .contador {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 15px;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+            margin: 20px auto;
+            background-color: #f8f9fa;
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            .nav-menu {
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-container {
+                margin-bottom: 15px;
+            }
+            .hero-title {
+                font-size: 28px;
+            }
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            .nav-menu {
+                flex-direction: column;
+            }
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> (0293) 431-1234</span>
+                <span><i class="fas fa-envelope"></i> contacto@empsucre.gob.ve</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header-main">
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="logo_vnzla.png" alt="Logo VNZLA" class="logo">
+                <img src="logo_s.png" alt="Logo sucre" class="logo">
+                <img src="logo_empsucre.jpg" alt="Logo EMPSUCRE" class="logo">
+                <div>
+                    <h1 class="institution-name">INSTITUTO AUTONOMO DE EMPRENDIMIENTO DEL ESTADO SUCRE</h1>
+                    <p class="institution-subtitle" style="text-align: right;">RIF: J-12345678-9</p>
+                </div>
+            </div>
+            <!-- <div class="search-box">
+                <form>
+                    <input type="text" placeholder="Buscar..." class="form-control">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div> -->
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="container">
+            <ul class="nav-menu">
+                <li class="active"><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Institucion</a></li>
+                <li><a href="#"><i class="fas fa-newspaper"></i> Gestion</a></li>
+                <li><a href="#"><i class="fas fa-landmark"></i> Municipios</a></li>
+                <li><a href="#"><i class="fas fa-gavel"></i> Galeria</a></li>
+                <!--<li><a href="#"><i class="fas fa-users"></i> Participación</a></li> -->
+                <li><a href="#"><i class="fas fa-phone-alt"></i> Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h2 class="hero-title">Estado Sucre: Tierra de Gracia y Belleza Natural</h2>
+            <p class="hero-subtitle">Promoviendo el desarrollo económico y social para todos los sucrenses</p>
+            <a href="#" class="btn">Conoce más</a>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Últimas Noticias</h2>
+            <div class="news-container">
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Noticia 1" class="news-image">
+                    <div class="news-content">
+                        <div class="news-date">10 de Agosto, 2025</div>
+                        <h3 class="news-title">Gobierno Regional inaugura nuevo hospital en Cumaná</h3>
+                        <p class="news-excerpt">El nuevo centro de salud beneficiará a más de 50 mil habitantes de la zona con servicios médicos de última generación.</p>
+                        <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1527788263495-3518a5c1c42d?q=80&w=908&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Noticia 2" class="news-image">
+                    <div class="news-content">
+                        <div class="news-date">10 de Agosto, 2025</div>
+                        <h3 class="news-title">Programa de creditos a emprendedores para el próximo trimestre del año</h3>
+                        <p class="news-excerpt">El gobierno estatal anuncia la apertura de 500 nuevos creditos para emprendedores del municipio Sucre.</p>
+                        <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1694171804491-4ebb8ed55b19?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Noticia 3" class="news-image">
+                    <div class="news-content">
+                        <div class="news-date">10 de Agosto, 2025</div>
+                        <h3 class="news-title">Inversión en infraestructura vial para el oriente del país</h3>
+                        <p class="news-excerpt">Se destinan 10 millones de dólares para la recuperación y rehabilitación de carreteras en el estado Sucre.</p>
+                        <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actividades Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Actividades Realizadas</h2>
+            <div class="news-container">
+                <div class="news-card">
+                    <img src="https://media.istockphoto.com/id/541976598/photo/business-coach.jpg?s=1024x1024&w=is&k=20&c=_cJiEJneamRPy3QdPFoZkokDfKxD5PDk6x9SEfuNweg=" alt="Noticia 1" class="news-image">
+                    <div class="news-content">
+                        <div class="news-date">10 de Agosto, 2025</div>
+                        <h3 class="news-title"> Talleres a Emprendedores del estado Sucre</h3>
+                        <p class="news-excerpt">Se les dicto talleres de economia productiva y sustentable a emprendedores del estado Sucre.</p>
+                        <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <img src="https://media.istockphoto.com/id/1010836150/photo/female-manager-in-team-meeting-elevated-view-through-window.jpg?s=1024x1024&w=is&k=20&c=XoX7Qo4xdOm2O_l__1TkBaQzNqrPqBwExwp0w9nGW9s=" alt="Noticia 2" class="news-image">
+                    <div class="news-content">
+                        <div class="news-date">10 de Agosto, 2025</div>
+                        <h3 class="news-title">Reunión Institucional</h3>
+                        <p class="news-excerpt">Reunión de trabajo para idear estrategias que fomenten el buen desempeño de los equipos promotores del estado.</p>
+                        <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <img src="https://scontent.fccs11-2.fna.fbcdn.net/v/t39.30808-6/488477054_1111541647679369_7142867584127711501_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=r2soxD54qX8Q7kNvwH86IoK&_nc_oc=AdnDypss-ChGFLQWxQoX2olhLfHRS6dotRAn3W5f57rvjsUOOSEl5tdbMDjchONgEqI&_nc_zt=23&_nc_ht=scontent.fccs11-2.fna&_nc_gid=yEGokw7e1pRkTPOgGdhfaw&oh=00_AfWYPGvzHg-TclKeDi6YR3dLDDvFSNWMgdmgOj96HgGSoA&oe=689EAF38"
+                        alt="Noticia 3" class="news-image">
+                    <div class="news-content">
+                        <div class="news-date">10 de Agosto, 2025</div>
+                        <h3 class="news-title">Dotación de Equipos</h3>
+                        <p class="news-excerpt">Dotación de equipos para impulsar el sector económico y tecnológico a nuestro emprendedores del municipio sucre</p>
+                        <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- acciones Section -->
+    <section class="section acciones">
+        <div class="container">
+            <h2 class="section-title">...</h2>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">Visitantes Web</h3>
+
+                    <!-- contador de visitas -->
+                    <div class="contador"> <span id="contador">0</span></div>
+
+                    <p>Cantidad de visitantes a nuestra pagina web.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="service-title">Cantidad de Financiamientos</h3>
+                    <div class="contador"> <span id="contador">0</span></div>
+                    <p>Esta es la cantidad de financiamientos dados a los emprendedores.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="service-title">Emprendedores Atendidos</h3>
+                    <div class="contador"> <span id="contador">0</span></div>
+                    <p>Cantidad de Emprendedores Atendidos.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-title">Emprendedores Pre-Registrados</h3>
+                    <div class="contador"> <span id="contador">0</span></div>
+                    <p>Cantidad de emprendedores Pre-Registrados en nuestro sitio Web.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <!--
+    <section class="section services">
+        <div class="container">
+            <h2 class="section-title">Servicios en Línea</h2>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="service-title">Trámites Documentales</h3>
+                    <p>Realiza tus trámites de forma rápida y segura desde cualquier lugar.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="service-title">Pagos en Línea</h3>
+                    <p>Paga tus impuestos, multas y servicios sin salir de casa.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="service-title">Solicitud de Vivienda</h3>
+                    <p>Regístrate en el sistema de asignación de viviendas populares.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-title">Oportunidades Laborales</h3>
+                    <p>Consulta las vacantes disponibles en el gobierno regional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+    <!-- Authorities Section -->
+    <!--
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestras Autoridades</h2>
+            <div class="authorities-container">
+                <div class="authority-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Gobernador" class="authority-photo">
+                    <div class="authority-info">
+                        <h3 class="authority-name">Luis Eduardo González</h3>
+                        <p class="authority-position">Gobernador del Estado Sucre</p>
+                        <a href="#" class="btn">Biografía</a>
+                    </div>
+                </div>
+
+                <div class="authority-card">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Vicegobernadora" class="authority-photo">
+                    <div class="authority-info">
+                        <h3 class="authority-name">María Fernanda Rodríguez</h3>
+                        <p class="authority-position">Vicegobernadora</p>
+                        <a href="#" class="btn">Biografía</a>
+                    </div>
+                </div>
+
+                <div class="authority-card">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Secretario General" class="authority-photo">
+                    <div class="authority-info">
+                        <h3 class="authority-name">Carlos Alberto Pérez</h3>
+                        <p class="authority-position">Secretario General de Gobierno</p>
+                        <a href="#" class="btn">Biografía</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+    <!-- Contact Section -->
+    <section class="section contact">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--white);">Contáctanos</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Dirección</h4>
+                            <p> Calle Bolivar, Cumaná, Estado Sucre</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Teléfonos</h4>
+                            <p>+58 (0293) 431-1000<br>+58 (0293) 432-2000</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Correo Electrónico</h4>
+                            <p>contacto@empsucre.gob.ve<br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Ubicación</h3>
+                    <div class="mapa">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.21582687679916!2d-64.17258161887652!3d10.464891977541294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sve!4v1754849473060!5m2!1ses-419!2sve" width="350" height="350" style="border:0;"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nombre Completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Correo Electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Asunto">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>EMPSUCRE</h3>
+                    <p>Comprometidos con el desarrollo económico y social del Estado Sucre, promoviendo la justicia social, la participación ciudadana y el bienestar de todos los sucrenses.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Gobernación</a></li>
+                        <li><a href="#">Secretaria Economíca</a></li>
+                        <li><a href="#">Plan de Gobierno</a></li>
+                        <li><a href="#">Economía Productiva</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Trámites en Línea</a></li>
+                        <li><a href="#">Pagos</a></li>
+                        <li><a href="#">Solicitudes</a></li>
+                        <li><a href="#">Concursos</a></li>
+                        <li><a href="#">Descargas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Municipios</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Andrés Eloy Blanco</a></li>
+                        <li><a href="#">Andrés Mata</a></li>
+                        <li><a href="#">Arismendi</a></li>
+                        <li><a href="#">Benítez</a></li>
+                        <li><a href="#">Bermúdez</a></li>
+                        <li><a href="#">Ver todos...</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Gobierno Bolivariano del Estado Sucre. Todos los derechos reservados.</p>
+                <p>Desarrollado por la Dirección de Tecnología e Informática de EMPRESUCRE</p>
+                <!-- REALIZADO POR ING. RAUL CANELON-->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidad básica para el menú de navegación
+        document.addEventListener('DOMContentLoaded', function() {
+            // Destacar elemento de menú activo
+            const currentLocation = location.href;
+            const menuItems = document.querySelectorAll('.nav-menu li a');
+
+            menuItems.forEach(item => {
+                if (item.href === currentLocation) {
+                    item.parentElement.classList.add('active');
+                }
+            });
+
+            // Animación para tarjetas al hacer scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            // Aplicar a todas las tarjetas
+            document.querySelectorAll('.news-card, .service-card, .authority-card').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+
+
+        // este es el contador de visitas
+        // Obtener el contador actual del almacenamiento local
+        let contador = localStorage.getItem('contadorVisitas') || 0;
+        // Incrementar el contador
+        contador++;
+        // Actualizar el almacenamiento local
+        localStorage.setItem('contadorVisitas', contador);
+        // Mostrar en la página
+        document.getElementById('contador').textContent = contador;
+    </script>
+</body>
+
+</html>
