@@ -905,7 +905,7 @@
         // Menú hamburguesa para móviles
         const menuToggle = document.getElementById('menuToggle');
         const mainMenu = document.getElementById('mainMenu');
-        
+
         menuToggle.addEventListener('click', function() {
             mainMenu.classList.toggle('active');
             const icon = menuToggle.querySelector('i');
@@ -917,7 +917,7 @@
                 icon.classList.add('fa-bars');
             }
         });
-        
+
         // Cerrar menú al hacer clic en un enlace
         const menuItems = document.querySelectorAll('.nav-menu li a');
         menuItems.forEach(item => {
@@ -927,69 +927,17 @@
                 menuToggle.querySelector('i').classList.add('fa-bars');
             });
         });
-        
-        // Contador de visitas para cada elemento
-        let counters = document.querySelectorAll('.counter');
-        let values = [
-            localStorage.getItem('contadorVisitas') || 0,
-            localStorage.getItem('contadorFinanciamientos') || 0,
-            localStorage.getItem('contadorEmprendedores') || 0,
-            localStorage.getItem('contadorPreregistrados') || 0
-        ];
-        
-        // Incrementar valores iniciales
-        values[0]++;
-        localStorage.setItem('contadorVisitas', values[0]);
-        
-        // Simular incremento para los otros contadores
-        values[1] = Math.floor(parseInt(values[1]) + Math.floor(Math.random() * 10);
-        values[2] = Math.floor(parseInt(values[2]) + Math.floor(Math.random() * 15);
-        values[3] = Math.floor(parseInt(values[3]) + Math.floor(Math.random() * 20);
-        
-        localStorage.setItem('contadorFinanciamientos', values[1]);
-        localStorage.setItem('contadorEmprendedores', values[2]);
-        localStorage.setItem('contadorPreregistrados', values[3]);
-        
-        // Mostrar valores con animación
-        counters.forEach((counter, index) => {
-            let current = 0;
-            const target = parseInt(values[index]);
-            const increment = target / 100;
-            
-            const updateCounter = () => {
-                current = Math.ceil(current + increment);
-                if (current < target) {
-                    counter.textContent = current;
-                    setTimeout(updateCounter, 10);
-                } else {
-                    counter.textContent = target;
-                }
-            };
-            
-            updateCounter();
-        });
-        
-        // Animación para tarjetas al hacer scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-            
-            // Aplicar a todas las tarjetas
-            document.querySelectorAll('.news-card, .service-card').forEach(card => {
-                card.style.opacity = 0;
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
-            });
-        });
+
+        // este es el contador de visitas
+        // Obtener el contador actual del almacenamiento local
+        let contador = localStorage.getItem('contadorVisitas') || 0;
+        // Incrementar el contador
+        contador++;
+        // Actualizar el almacenamiento local
+        localStorage.setItem('contadorVisitas', contador);
+        // Mostrar en la página
+        document.getElementById('contador').textContent = contador
     </script>
 </body>
 </html>
+
