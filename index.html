@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        :root {
+         :root {
             --primary-color: #00539b;
             --secondary-color: #e31837;
             --accent-color: #f9b233;
@@ -37,8 +37,8 @@
             margin: 0 auto;
             padding: 0 15px;
         }
-        
         /* Header Styles */
+        
         .top-bar {
             background-color: var(--primary-color);
             color: var(--white);
@@ -161,8 +161,8 @@
         .nav-menu li.active a {
             background-color: var(--secondary-color);
         }
-        
         /* Hero Banner */
+        
         .hero-banner {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/736x/5d/cd/51/5dcd51817ddc879aa6472328e26fbba3.jpg');
             background-size: cover;
@@ -214,8 +214,8 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        
         /* News Section */
+        
         .section {
             padding: 40px 0;
         }
@@ -307,8 +307,8 @@
         .read-more:hover i {
             transform: translateX(5px);
         }
-        
         /* Actions Section */
+        
         .acciones .services-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -354,8 +354,8 @@
             margin: 15px auto;
             background-color: #f8f9fa;
         }
-        
         /* Contact Section */
+        
         .contact {
             background: linear-gradient(to right, var(--primary-color), #0066b8);
             color: var(--white);
@@ -418,8 +418,8 @@
             min-height: 100px;
             resize: vertical;
         }
-        
         /* Footer */
+        
         .footer {
             background-color: #002147;
             color: var(--white);
@@ -484,17 +484,15 @@
             border: none;
             border-radius: 8px;
         }
-        
         /* Responsive Design */
+        
         @media (max-width: 992px) {
             .hero-title {
                 font-size: 32px;
             }
-            
             .institution-name {
                 font-size: 18px;
             }
-            
             .institution-subtitle {
                 font-size: 14px;
             }
@@ -505,19 +503,15 @@
                 flex-direction: column;
                 text-align: center;
             }
-            
             .contact-info {
                 margin-bottom: 10px;
             }
-            
             .social-icons {
                 margin-top: 5px;
             }
-            
             .hamburger {
                 display: block;
             }
-            
             .nav-menu {
                 display: none;
                 flex-direction: column;
@@ -528,28 +522,22 @@
                 background-color: var(--primary-color);
                 z-index: 1000;
             }
-            
             .nav-menu.active {
                 display: flex;
             }
-            
             .nav-menu li {
                 width: 100%;
                 text-align: center;
             }
-            
             .hero-banner {
                 height: 300px;
             }
-            
             .hero-title {
                 font-size: 24px;
             }
-            
             .hero-subtitle {
                 font-size: 16px;
             }
-            
             .section-title {
                 font-size: 24px;
             }
@@ -559,37 +547,29 @@
             .logo {
                 max-height: 60px;
             }
-            
             .hero-banner {
                 height: 250px;
             }
-            
             .hero-title {
                 font-size: 20px;
             }
-            
             .hero-subtitle {
                 font-size: 14px;
             }
-            
             .btn {
                 padding: 10px 20px;
                 font-size: 14px;
             }
-            
             .section {
                 padding: 30px 0;
             }
-            
             .contador {
                 font-size: 20px;
                 padding: 10px;
             }
-            
             .footer-column {
                 text-align: center;
             }
-            
             .footer-column h3::after {
                 left: 50%;
                 transform: translateX(-50%);
@@ -743,7 +723,8 @@
                         <i class="fas fa-globe"></i>
                     </div>
                     <h3 class="service-title">Visitantes Web</h3>
-                    <div class="contador"> <span class="counter">0</span></div>
+                    <div class="contador"> <span id="contador">0</span></div>
+
                     <p>Cantidad de visitantes a nuestra pagina web.</p>
                 </div>
 
@@ -818,7 +799,8 @@
                 <div class="contact-info">
                     <h3>Ubicación</h3>
                     <div class="mapa">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.21582687679916!2d-64.17258161887652!3d10.464891977541294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sve!4v1754849473060!5m2!1ses-419!2sve" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d245.21582687679916!2d-64.17258161887652!3d10.464891977541294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sve!4v1754849473060!5m2!1ses-419!2sve" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
@@ -936,8 +918,32 @@
         // Actualizar el almacenamiento local
         localStorage.setItem('contadorVisitas', contador);
         // Mostrar en la página
-        document.getElementById('contador').textContent = contador
+        document.getElementById('contador').textContent = contador;
+
+
+
+        // Animación para tarjetas al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            // Aplicar a todas las tarjetas
+            document.querySelectorAll('.news-card, .service-card').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
     </script>
 </body>
-</html>
 
+</html>
